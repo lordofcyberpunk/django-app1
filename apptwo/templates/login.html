@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+{% block body %}
+<div class="container">
+<h2>Login</h2>
+    <form action="{% url 'apptwo:login' %}" method="post">
+{% csrf_token %}
+        {{ form.as_p }}
+<button name="submit" class="btn btn-primary">Login</button>
+        <input type="hidden"name="next"value="{{ next }}">
+    </form>
+</div>
+{% endblock body %}
+
+
+
+

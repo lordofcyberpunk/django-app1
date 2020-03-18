@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+    {{topic.subject}}
+{% endblock title %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'appone:home' %}">Boards </a></li>
+    <li class="breadcrumb-item "><a href="{% url 'appone:topics' topic.board.pk %}">{{ topic.board.name }}</a></li>
+    <li class="breadcrumb-item active">{{topic.subject}} </li>
+    {% endblock breadcrumb %}
+{% block content %}
+
+
+  <div class="mb-4">
+    <a href="{% url 'appone:reply_topic' topic.board.pk topic.pk %}" class="btn btn-primary" role="button">Reply</a>
+  </div>
+
+  {% for post in posts %}
+    <div class="card mb-2 {% if forloop.first %}border-dark{% endif %}">
+      {% if forloop.first %}
+        <div class="card-header text-white bg-dark py-2 px-3">{{ topic.subject }}</div>
+      {% endif %}
+      <div class="card-body p-3">
+          <div class="row">
+            <div class="col-2">
+              <img src="{% static 'img/house.jpg' %}" alt="{{ post.created_by.username }}" class="w-100">
+              <small>Posts: {{ post.created_by.posts.count }}</small>
+            </div>
+            <div class="col-10">
+              <div class="row mb-3">
+                <div class="col-6">
+                  <strong class="text-muted">{{ post.created_by.username }}</strong>
+                </div>
+                <div class="col-6 text-right">
+                  <small class="text-muted">{{ post.created_at }}</small><br>
+                    {% if post.updated_at %}
+                  <small class="text-muted">Updated At :{{ post.updated_at|naturaltime }}</small>
+                     {% endif  %}
+                </div>
+              </div>
+              {{ post.message }}
+              {% if post.created_by == user %}
+                <div class="mt-3">
+                  <a href="{% url 'appone:edit_post' post.topic.board.pk post.topic.pk post.pk %}" class="btn btn-primary btn-sm" role="button">Edit</a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+    </div>
+  {% endfor %}
+{% if posts.has_other_pages %}
+    <nav aria-label="Topics pagination" class="mb-4">
+    <ul class="pagination">
+    {% if posts.number > 1 %}
+<li class="page-item">
+    <a class="page-link" href="?page=1">First</a>
+</li>
+{% else %}
+        <li class="page-item active">>
+        <span class="page-link">First</span>
+        </li>
+{% endif %}
+        {% if posts.has_previous %}
+        <li class="page-item">
+            <a href="?page={{ posts.previous_page_number }}" class="page-link">Previous</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+        <span class="page-link">Previous</span>
+        </li>
+        {% endif %}
+    {% for page_num in posts.paginator.page_range %}
+    {% if posts.number == page_num %}
+    <li class="page-item active">
+        <span class="page-link">{{page_num}}
+        <span class="sr-only">(current)</span>
+           </span>
+    </li>
+        {% elif page_num > posts.number|add:'-3' and page_num <  posts.number|add:'3' %}
+        <li class="page-item">
+            <a href="?page={{ page_num }}" class="page-link">{{ page_num }}</a>
+        </li>
+{% endif %}
+{% endfor%}
+
+{% if posts.has_next %}
+<li class="page-item">
+ <a href="?page={{ posts.next_page_number }}" class="page-link">Next</a>
+</li>
+{% else %}
+<li class="page-item disabled">
+    <span class="page-link">Next</span>
+    </li>
+    {% endif %}
+
+    {% if posts.number != posts.paginator.num_pages %}
+<li class="page-item">
+    <a href="?page={{ posts.paginator.num_pages }}" class="page-item"></a>
+</li>
+
+{% else %}
+        <li class="page-item disabled">
+    <span class="page-link">Last</span>
+    </li>
+    {% endif %}
+
+    </ul>
+    </nav>
+    {% endif %}
+{% endblock content %}

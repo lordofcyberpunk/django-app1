@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+<h2>Sign up</h2>
+    <form action="{% url 'apptwo:signup' %}" method="post">
+{% csrf_token %}
+        {{ form.as_p }}
+<button name="submit" class="btn btn-primary">Create An Account</button>
+    </form>
+</div>
+{% endblock body %}
