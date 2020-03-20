@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e13568a-ab6b-4b56-ac6e-790e04fb6b3e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3e13568a-ab6b-4b56-ac6e-790e04fb6b3e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,11 +90,24 @@
       <workItem from="1584554491322" duration="1396000" />
       <workItem from="1584555936026" duration="614000" />
       <workItem from="1584597335052" duration="597000" />
+      <workItem from="1584691087219" duration="56000" />
     </task>
+    <task id="LOCAL-00001" summary="third commit">
+      <created>1584691152766</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584691152766</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="third commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="third commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="104" y="38" key="#HTTP_Proxy" timestamp="1584519423300">
@@ -119,10 +130,10 @@
       <screen x="0" y="0" width="1024" height="728" />
     </state>
     <state x="153" y="130" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1024.728@0.0.1024.728" timestamp="1584523462710" />
-    <state x="137" y="0" key="CommitChangelistDialog2" timestamp="1584555625718">
+    <state x="137" y="0" key="CommitChangelistDialog2" timestamp="1584691150444">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
-    <state x="137" y="0" key="CommitChangelistDialog2/0.0.1024.728@0.0.1024.728" timestamp="1584555625718" />
+    <state x="137" y="0" key="CommitChangelistDialog2/0.0.1024.728@0.0.1024.728" timestamp="1584691150444" />
     <state x="188" y="114" key="FileChooserDialogImpl" timestamp="1584268327584">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
